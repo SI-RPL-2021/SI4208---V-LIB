@@ -44,7 +44,7 @@
             </li>
             <li style="margin-right: 30px;" class="nav-item">
                 <form class="form-inline" action="/action_page.php">
-                    <a style="border-radius: 60px; padding-left: 20px; padding-right: 20px; background-color: #B0DD6F; border-color: #B0DD6F;"  href="{{ route('login') }}     " class="btn btn-succeess">Login</a>
+                    <a style="border-radius: 60px; padding-left: 20px; padding-right: 20px; background-color: #B0DD6F; border-color: #B0DD6F;"  href="" class="btn btn-succeess">Login</a>
                 </form>
             </li>
         </ul>
