@@ -25,11 +25,6 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
         <ul class="navbar-nav">
-            <li style="margin-left: -55px;" class="nav-item">
-                <form class="form-inline" action="/action_page.php">
-                    <a style="border-radius: 60px; padding: 20px; padding-left: 40px; padding-right: 40px; background-color: #3D9198;"  href="" class="btn btn-success"></a>
-                </form>
-            </li>
             <li style="margin-left: 0px;" class="nav-item">
                 <a class="nav-link" href="/">Home</a>
             </li>
@@ -44,7 +39,7 @@
             </li>
             <li style="margin-right: 30px;" class="nav-item">
                 <form class="form-inline" action="/action_page.php">
-                    <a style="border-radius: 60px; padding-left: 20px; padding-right: 20px; background-color: #B0DD6F; border-color: #B0DD6F;"  href="{{ route('login') }}     " class="btn btn-succeess">Login</a>
+                    <a style="border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;"  href="{{ route('login') }}" class="btn btn-success btn-user btn-block">Login</a>
                 </form>
             </li>
         </ul>
@@ -53,7 +48,7 @@
     @yield('content')
 
     <!-- Footer -->
-    <div class="jumbotron" style="margin-bottom:0; margin-top:100px; background-color: #3D9198;">
+    <div class="jumbotron" style="background-color: #1cc88a; margin-bottom:0; margin-top:100px;">
         <div class="row" style="margin-top: 30px;">
             <div class="col-sm-10">
                 <h4><a href="" class="text-white">Home</a></h4>
@@ -71,7 +66,7 @@
                 </center>
             </div>
         </div>
-        <hr style="border: 2px solid #B0DD6F; border-radius: 5px;">
+        <hr style="border: 2px solid #fafafa; border-radius: 5px;">
         <div class="row">
             <div class="col-sm-9">
                 <h6 class="text-white">© Virtual Library</h6>

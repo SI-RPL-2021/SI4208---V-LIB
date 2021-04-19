@@ -7,7 +7,8 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6 d-none d-lg-block bg-success">
+                        <h1 style="text-align: center; padding-top: 40%; color: #fafafa; font-size: 80px;">V-Lib</h1></div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
@@ -43,14 +44,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-success btn-user btn-block">
                                             {{ __('Login') }}
                                         </button>
                                     </div>
 
                                     <hr>
 
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <button type="button" class="btn btn-github btn-user btn-block">
                                             <i class="fab fa-github fa-fw"></i> {{ __('Login with GitHub') }}
                                         </button>
@@ -66,7 +67,7 @@
                                         <button type="button" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> {{ __('Login with Facebook') }}
                                         </button>
-                                    </div>
+                                    </div> -->
                                 </form>
 
                                 <hr>
