@@ -7,8 +7,8 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-success">
-                        <h1 style="text-align: center; padding-top: 40%; color: #fafafa; font-size: 80px;">V-Lib</h1></div>
+                        <div class="col-lg-6 d-none d-lg-block bg-light">
+                        <img style="width: 100%; padding: 100px;" src="{{asset('img/vlib.png')}}" alt=""></div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
