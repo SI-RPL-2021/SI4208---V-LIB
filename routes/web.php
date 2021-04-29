@@ -25,6 +25,10 @@ Route::put('/profile', 'ProfileController@update')->name('profile.update');
 Route::get('/grocery', 'GroceryController@index')->name('grocery');
 Route::post('/grocery', 'GroceryController@index');
 
+Route::get('/catalog', function () {
+    return view('catalog');
+})->name('catalog');
+
 Route::get('/about', function () {
     return view('about');
 })->name('about');

@@ -74,10 +74,10 @@
         </li>
 
         <!-- Nav Item -->
-        <li class="nav-item {{ Nav::isRoute('grocery') }}">
-            <a class="nav-link" href="{{ route('grocery') }}">
+        <li class="nav-item {{ Nav::isRoute('catalog') }}">
+            <a class="nav-link" href="{{ route('catalog') }}">
                 <i class="fas fa-fw fa-book"></i>
-                <span>{{ __('Grocery CRUD') }}</span>
+                <span>{{ __('Catalog') }}</span>
             </a>
         </li>
 
