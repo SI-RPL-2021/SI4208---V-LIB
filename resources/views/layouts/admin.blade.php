@@ -32,7 +32,7 @@
     <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('welcome') }}">
             <div class="sidebar-brand-icon">
                 <img style="width: 60%;" src="{{asset('img/vlib.png')}}" alt="">
             </div>

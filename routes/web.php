@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('/main/home');
+    return view('/welcome');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/welcome', 'WelcomeController@index')->name('welcome');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');

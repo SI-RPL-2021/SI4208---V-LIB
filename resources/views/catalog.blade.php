@@ -4,6 +4,14 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">{{ __('Catalog') }}</h1>
 
+    <p>no entry found</p>
+    <div>
+        <table>
+            <tr>
+              
+            </tr>
+        </table>
+    </div>
     <!-- Main Content goes here -->
 
 
