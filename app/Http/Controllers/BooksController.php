@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class BooksController extends Controller
 {
@@ -14,7 +16,8 @@ class BooksController extends Controller
      */
     public function index()
     {
-        //
+        $books = book::all();
+        return view('catalog', ['books' => $books]);
     }
 
     /**
