@@ -21,11 +21,7 @@
 
     <!-- Favicon -->
     <link href="{{ asset('img/vlib.png') }}" rel="icon" type="image/png">
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> krisnadp
 </head>
 <body>
 

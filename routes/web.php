@@ -14,28 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
-    return view('/welcome');
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/welcome', 'WelcomeController@index')->name('welcome');
-
-Route::get('/profile', 'ProfileController@index')->name('profile');
-Route::put('/profile', 'ProfileController@update')->name('profile.update');
-
-Route::get('/grocery', 'GroceryController@index')->name('grocery');
-Route::post('/grocery', 'GroceryController@index');
-
-Route::get('/catalog', function () {
-    return view('catalog');
-})->name('catalog');
-
-=======
     return view('welcome');
 });
 
->>>>>>> krisnadp
 Route::get('/about', function () {
     return view('about');
 });

@@ -4,20 +4,10 @@
     
     @section('content')
 
-<<<<<<< HEAD
-@section('main-content')
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">{{ __('About') }}</h1>
-
-    <div class="row">
-        <div class="col-md-6">
-            <h3>What is V-Lib?</h3>
-=======
     
     <div class="row" style="margin-left: 150px; margin-top: 100px">
         <div class="col-md-6" style="">
         <h3>What is V-Lib?</h3>
->>>>>>> krisnadp
             <p style="text-align: justify;">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
                     Ullam nostrum modi at officia dolor deserunt consequuntur 
