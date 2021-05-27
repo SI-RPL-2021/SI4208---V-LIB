@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use GroceryCrud\Core\Catalog;
 
 class CatalogController extends Controller
@@ -57,6 +58,7 @@ class CatalogController extends Controller
      */
     public function index()
     {
+
         $crud = $this->_getGroceryCrudEnterprise();
 
         $crud->setTable('users');
@@ -64,7 +66,12 @@ class CatalogController extends Controller
 
         $output = $crud->render();
 
+        
         return $this->_show_output($output);
+
+        $catalog = \App\Catalog::all();
+        return view('catalog.index', ['catalog' => $catalog]);
+
     }
 
     public function create()

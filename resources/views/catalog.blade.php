@@ -6,10 +6,16 @@
 
     <p>no entry found</p>
     <div>
+        
         <table>
+            @foreach( $catalog as $ctg )
             <tr>
-              
+                <td>{{ $ctg -> judul }}</td>
+                <td>{{ $ctg -> pengarang }}</td>
+                <td>{{ $ctg -> tahun }}</td>
+                <td>{{ $ctg -> kategori }}</td>
             </tr>
+            @endforeach
         </table>
     </div>
     <!-- Main Content goes here -->
