@@ -1,34 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- bootsrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="{{ asset('img/vlib.png') }}" rel="icon" type="image/png">
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <ul class="navbar-nav">
+                    <li style="margin-left: 0px;" class="nav-item">
+                        <a class="nav-link" href="{{ url('/') }}">Home</a>
+                    </li>
+                    
+                </ul>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -38,32 +49,34 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li style="margin-left: -150px;" class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                        <!-- Authentication Links -->
+                        
+                        <li style="margin-right: 0px; margin-left: 0px;" class="nav-item">
+                            <a class="nav-link" href="/catalog">Catalog</a>
                         </li>
-                        <li style="margin-right: 10px; margin-left: 700px;" class="nav-item">
-                            <a class="nav-link" href="#">Catalog</a>
-                        </li>
-                        <li style="margin-right: 10px;" class="nav-item">
+                        <li style="margin-right: 0px;" class="nav-item">
                             <a class="nav-link" href="#">Publication</a>
                         </li>
-                        <li style="margin-right: 10px;" class="nav-item">
-                            <a class="nav-link" href="/main/about">About Us</a>
+                        <li style="margin-right: 0px;" class="nav-item">
+                            <a class="nav-link" href="/about">About Us</a>
                         </li>
-                        <!-- Authentication Links -->
+
                         @guest
-                            <li class="nav-item">
-                                <a style="border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a; color: #fafafa;" class="nav-link" href="{{ route('login') }}" class="btn btn-success btn-user btn-block">{{ __('Login') }}</a>
-                            </li>
-                            <!-- @if (Route::has('register'))
+                            @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                            @endif -->
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    
+                                </li>
+                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -73,7 +86,7 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
@@ -89,8 +102,8 @@
         </main>
     </div>
 
-<!-- Footer -->
-<div class="jumbotron" style="background-color: #1cc88a; margin-bottom:0; margin-top:100px;">
+    <!-- Footer -->
+    <div class="jumbotron" style="background-color: #1cc88a; margin-bottom:0; margin-top:100px;">
         <div class="row" style="margin-top: 30px;">
             <div class="col-sm-10">
                 <h4><a href="" class="text-white">Home</a></h4>
@@ -125,7 +138,6 @@
             </div>
         </div>
     </div>
-
 
 </body>
 </html>

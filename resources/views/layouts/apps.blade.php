@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
         <ul class="navbar-nav">
             <li style="margin-left: 0px;" class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="{{ url('/home') }}">Home</a>
             </li>
             <li style="margin-right: 30px; margin-left: 770px;" class="nav-item">
                 <a class="nav-link" href="/catalog">Catalog</a>
@@ -40,11 +40,58 @@
             <li style="margin-right: 30px;" class="nav-item">
                 <a class="nav-link" href="/about">About Us</a>
             </li>
+
+            <!-- @guest
             <li style="margin-right: 30px;" class="nav-item">
-                <form class="form-inline" action="">
-                    <a style="border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;"  href="" class="btn btn-success btn-user btn-block">Login</a>
-                </form>
-            </li>
+                
+                @if (Route::has('login'))
+                <div class="container">
+                    @auth
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                    @else
+                    <a style="border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;"  href="{{ route('login') }}" class="btn btn-success btn-user btn-block">Login</a>
+                    @endauth
+                </div>
+            @endif
+
+            </li> -->
+
+            @guest
+            
+                @if (Route::has('login'))
+                    <li style="margin-right: 30px;" class="nav-item">
+                    <a style="border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;"  href="{{ route('login') }}" class="btn btn-success btn-user btn-block">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                @endif
+
+                @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
+                
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                    </li>
+                
+                @endguest
+
         </ul>
     </nav>
     
