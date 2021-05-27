@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('/welcome');
 });
 
@@ -30,12 +31,19 @@ Route::get('/catalog', function () {
     return view('catalog');
 })->name('catalog');
 
+=======
+    return view('welcome');
+});
+
+>>>>>>> krisnadp
 Route::get('/about', function () {
     return view('about');
-})->name('about');
+});
 
-Route::get('/blank', function () {
-    return view('blank');
-})->name('blank');
+Route::get('/catalog', function () {
+    return view('catalog');
+});
 
-Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+Auth::routes();
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/restricted', [App\Http\Controllers\HomeController::class, 'restricted'])->middleware(['role:0']);
