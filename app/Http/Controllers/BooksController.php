@@ -25,9 +25,9 @@ class BooksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(book $books)
     {
-        //
+        return view('addBooks', compact('books'));
     }
 
     /**
@@ -38,7 +38,25 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $books = new book;
+        $books->title = $request->title;
+        $books->price = $request->price;
+        $books->author = $request->author;
+        $books->description = $request->description;
+        $books->year = $request->year;
+        $books->borrowTime = $request->borrowTime;
+
+        if($request->hasFile('image')){
+            $img_path = date('YmdHis-') . $request->name . "." . $request->file('image')->extension();
+            book::putFileAs(
+                'public', $request->file('image'), $img_path
+            );
+            $books->image = $img_path;
+        }
+
+        $books->save();
+
+        return redirect('/addBooks')->with('status', 'Books has been added!');
     }
 
     /**

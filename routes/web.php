@@ -27,8 +27,8 @@ Route::get('/catalog', function () {
 
 //books
 Route::get('/catalog', 'App\Http\Controllers\BooksController@index');
-// Route::get('/product/create', 'App\Http\Controllers\ProductController@create');
-// Route::post('/product/create', 'App\Http\Controllers\ProductController@store');
+Route::get('/addBooks', 'App\Http\Controllers\BooksController@create');
+Route::post('/addBooks', 'App\Http\Controllers\BooksController@store');
 // Route::delete('/product/{product}', 'App\Http\Controllers\ProductController@destroy');
 // Route::get('/product/{product}/edit', 'App\Http\Controllers\ProductController@edit');
 // Route::patch('/product/{product}', 'App\Http\Controllers\ProductController@update');
