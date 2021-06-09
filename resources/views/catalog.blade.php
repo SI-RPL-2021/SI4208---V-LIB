@@ -4,7 +4,6 @@
     
     @section('content')
 
-    
     <div class="container" style="margin-top: 40px;">
             @if($books->count() > 0)
                 <h3 style="text-align: center;">List of Books</h3>
@@ -24,7 +23,7 @@
                                         <p class="card-text"><strong>Rp. {{ $book->price }}</strong></p>
                                     @endif
                                 </p>
-                                <a href="/book/{{ $book -> id }}" class="btn btn-success">See Book</a>
+                                <a href="/book/{{ $book -> id }}" style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" class="btn btn-success">See Book</a>
                             </div>
                         </div>
                     @endforeach
