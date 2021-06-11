@@ -1,11 +1,15 @@
 @extends('layouts/app')
-
 @section('title', 'Catalog')
-
 @section('content')
 <div class="container" style="margin-top: 40px;">
     <div class="table-responsive">
-        <table class="table table-sm" id="dataTable" width="100%" cellspacing="0">
+        <form action="/findBook" method="GET" class="d-inline">
+            @csrf
+            <label for="gsearch">Find Book:</label>
+            <input type="search" id="gsearch" name="gsearch">
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
+        <table class="table table-sm mt-4" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>Title</th>

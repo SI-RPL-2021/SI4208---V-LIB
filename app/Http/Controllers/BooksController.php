@@ -155,8 +155,8 @@ class BooksController extends Controller
     public function destroy(Book $book)
     {
         $trasactions = transactions::all();
-        foreach($trasactions as $tc){
-            if($tc->id_buku == $book->id){
+        foreach ($trasactions as $tc) {
+            if ($tc->id_buku == $book->id) {
                 $tc->delete();
             }
         }
@@ -201,5 +201,15 @@ class BooksController extends Controller
         $transaction = transactions::find($request->id);
         $book = Book::find($transaction->id_buku);
         return view('laporanTransaksi', ['transaction' => $transaction], ['book' => $book]);
+    }
+
+    public function findBook(Request $request)
+    {
+        if (is_null($request->gsearch)) {
+            return redirect('/catalog');
+        } else {
+            $books = Book::all();
+            return view('findBook', ['keyword' => $request->gsearch], ['books' => $books]);
+        }
     }
 }

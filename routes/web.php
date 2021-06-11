@@ -53,3 +53,5 @@ Route::post('/borrowBook/{book}', [BooksController::class, 'borrow'])->name('bor
 Route::post('/buyBook/{book}', [BooksController::class, 'buy'])->name('buyBook');
 Route::post('/returnBook/{book}', [BooksController::class, 'returnBook'])->name('returnBook');
 Route::post('/laporanTransaksi/{book}', [BooksController::class, 'laporanTransaksi'])->name('laporanTransaksi');
+
+Route::get('/findBook', [BooksController::class, 'findBook'])->name('findBook');

@@ -38,9 +38,6 @@
                 <p>Days</p>
                 <button type="submit" class="btn btn-danger">Borrow</button>
             </form>
-
-
-
             <form action="/buyBook/{{ $book -> id }}" method="POST" class="d-inline">
                 @csrf
                 <input type="hidden" name="id_buku" value="{{$book -> id}}">
@@ -48,10 +45,6 @@
                 <input type="hidden" name="url_buku" value="{{$book -> file}}">
                 <button type="submit" class="btn btn-danger">Buy</button>
             </form>
-
-
-
-
             @if (Auth::user()->is_admin == 1)
             <a href="/book/{{ $book -> id }}/editBooks" class="btn btn-success">edit</a>
             <form action="{{ $book->id }}" method="POST" class="d-inline">
