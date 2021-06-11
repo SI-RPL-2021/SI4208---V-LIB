@@ -15,30 +15,58 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Admin -->
+                @if(Auth::user()->is_admin == 1)
+                @foreach($transaction as $tc)
+                <tr>
+                    <td>
+                        @foreach($books as $bk)
+                        @if($bk->id == $tc->id_buku)
+                        {{$bk->title}}
+                        @endif
+                        @endforeach
+                    </td>
+                    <td>{{$tc->jenis_transaksi }}</td>
+                    <td>
+                        @if($tc->jenis_transaksi == "beli")
+                        -
+                        @else
+                        {{$tc->lama_pinjam}}
+                        @endif
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-success">Read</a>
+                    </td>
+                </tr>
+                @endforeach
+
+                <!-- User -->
+                @else
                 @foreach($transaction as $tc)
                 @if($tc->id_user == Auth::user()->id)
                 <tr>
-                <td>
-                @foreach($books as $bk)
-                @if($bk->id == $tc->id_buku)
-                {{$bk->title}}
-                @endif
-                @endforeach
-                </td>
-                <td>{{$tc->jenis_transaksi }}</td>
-                <td>
-                @if($tc->jenis_transaksi == "beli")
-                -
-                @else
-                {{$tc->lama_pinjam}}
-                @endif
-                </td>
-                <td>
-                <a href="" class="btn btn-success">Read</a>
-                </td>
+                    <td>
+                        @foreach($books as $bk)
+                        @if($bk->id == $tc->id_buku)
+                        {{$bk->title}}
+                        @endif
+                        @endforeach
+                    </td>
+                    <td>{{$tc->jenis_transaksi }}</td>
+                    <td>
+                        @if($tc->jenis_transaksi == "beli")
+                        -
+                        @else
+                        {{$tc->lama_pinjam}}
+                        @endif
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-success">Read</a>
+                    </td>
                 </tr>
                 @endif
                 @endforeach
+                @endif
             </tbody>
         </table>
     </div>
