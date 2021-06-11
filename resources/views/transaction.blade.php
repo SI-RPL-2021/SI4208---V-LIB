@@ -36,6 +36,7 @@
                     </td>
                     <td>
                         <a href="" class="btn btn-success">Read</a>
+                        <a href="" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
                 @endforeach
