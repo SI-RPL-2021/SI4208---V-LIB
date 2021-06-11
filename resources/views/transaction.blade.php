@@ -3,7 +3,7 @@
 @section('title', 'Transaction')
 
 @section('content')
-<div class="container" style="margin-top: 40px;">
+<div class="container" style="margin-top: 40px;"> 
     <div class="table-responsive">
         <table class="table table-sm" id="dataTable" width="100%" cellspacing="0">
             <thead>
