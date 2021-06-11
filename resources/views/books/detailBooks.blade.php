@@ -8,7 +8,7 @@
             <h3 style="text-align: center;">Details Books</h3>
             <div class="row" style="margin-left: 300px; margin-top: 40px;">
                 <div class="col-xl-4">
-                    <img style="width: 80%;" src="" alt="">
+                    <img style="width: 80%;" src='{{asset("public/$book->image")}}' alt="">
                 </div>
                 <div class="col-xl-8">
                     <h5>{{ $book -> title }}</h5>

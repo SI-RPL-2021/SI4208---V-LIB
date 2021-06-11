@@ -18,13 +18,13 @@ class BooksController extends Controller
     {
         //
     }
-    
+
     public function catalog()
     {
         $books = book::all();
         return view('catalog', ['books' => $books]);
     }
-    
+
     public function listBooks()
     {
         $books = book::all();
@@ -49,6 +49,15 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
+        if ($files = $request->file('image')) {
+            $destinationPath = 'public/images/';
+            $file = $request->file('image');
+            $profileImage = rand(1000, 2000000) . "." .
+            $files->getClientOriginalExtension();
+            $pathImg = $file->storeAs('images', $profileImage);
+            $files->move($destinationPath, $profileImage);
+        }
+
         $books = new book;
         $books->title = $request->title;
         $books->price = $request->price;
@@ -56,22 +65,11 @@ class BooksController extends Controller
         $books->description = $request->description;
         $books->year = $request->year;
         $books->borrowTime = $request->borrowTime;
-
-        // if($request->hasFile('image')) {
-        //     $file = $request->file('image');
-        //     $extension = $file->getClientOriginalExtension();
-        //     $image = time() . '.' . $extension;
-        //     $file->move('public/img', $filename);
-        //     $books->image = $image;
-        // } else {
-        //     return $request;
-        //     $books->image = '';
-        // }
-
+        $books->image = $pathImg;
+        
         $books->save();
 
         return redirect('/books/addBooks')->with('status', 'Books has been added!');
-
     }
 
     /**
@@ -103,26 +101,27 @@ class BooksController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request)
     {
-        Book::where('id', $book->id)
-                ->update([
-                    'title' => $request->title,
-                    'price' => $request->price,
-                    'author' => $request->author,
-                    'description' => $request->description,
-                    'year' => $request->year,
-                    'borrowTime' => $request->borrowTime
-                    ]);
-        return redirect('/catalog');
+        $books = Book::find($request->id);
+        $books->title = $request->title;
+        $books->price = $request->price;
+        $books->author = $request->author;
+        $books->description = $request->description;
+        $books->year = $request->year;
+        $books->borrowTime = $request->borrowTime;
+        $books->image = $request->image;
+        $books->verified = $request->verified;
+        $books->save();
+        return redirect('/catalog')->with('status', 'Books has been updated!');
     }
-    
+
     public function verified(Request $request, Book $book)
     {
         Book::where('id', $book->id)
-                ->update([
-                    'verified' => $request->verified
-                    ]);
+            ->update([
+                'verified' => $request->verified
+            ]);
         return redirect('/listBooks');
     }
 

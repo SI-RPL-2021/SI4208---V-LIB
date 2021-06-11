@@ -1,16 +1,19 @@
 @extends('layouts.app')
+
+@section('title', 'Dashboard')
    
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">
+                    <h3 style="text-align: center; margin-top: 50px; margin-bottom: 20px;">Dashboard</h3>
+                </div>
                 <div class="card-body">
-                    You are Admin.
 
                     <table class="table">
-                        <thead class="thead-dark">
+                        <thead>
                             <tr>
                             <th scope="col">User ID</th>
                             <th scope="col">Username</th>

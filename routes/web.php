@@ -41,6 +41,6 @@ Route::get('/books/addBooks', 'App\Http\Controllers\BooksController@create');
 Route::post('/books/addBooks', 'App\Http\Controllers\BooksController@store')->name('/books/addBooks');
 Route::get('/book/{book}', 'App\Http\Controllers\BooksController@show');
 Route::get('/book/{book}/editBooks', 'App\Http\Controllers\BooksController@edit');
-Route::patch('/book/{book}', 'App\Http\Controllers\BooksController@update');
+Route::post('/book/{book}', 'App\Http\Controllers\BooksController@update');
 Route::patch('/book/{book}', 'App\Http\Controllers\BooksController@verified');
 Route::delete('/book/{book}', 'App\Http\Controllers\BooksController@destroy');
