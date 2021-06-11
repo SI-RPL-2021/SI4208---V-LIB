@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\transactions;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,6 +24,13 @@ class BooksController extends Controller
     {
         $books = book::all();
         return view('catalog', ['books' => $books]);
+    }
+
+    public function transaction()
+    {
+        $transaction = transactions::all();
+        $books = book::all();
+        return view('transaction', ['transaction' => $transaction], ['books' => $books]);
     }
 
     public function listBooks()
@@ -134,6 +142,27 @@ class BooksController extends Controller
     public function destroy(Book $book)
     {
         Book::destroy($book->id);
+        return redirect('/catalog');
+    }
+
+    public function borrow(Request $request)
+    {
+        $trasactions = new transactions();
+        $trasactions->id_buku = $request->id_buku;
+        $trasactions->id_user = $request->id_user;
+        $trasactions->jenis_transaksi  = "pinjam" ;
+        $trasactions->lama_pinjam  = $request->buyer_quantity;
+        $trasactions->save();
+        return redirect('/catalog');
+    }
+
+    public function buy(Request $request)
+    {
+        $trasactions = new transactions();
+        $trasactions->id_buku = $request->id_buku;
+        $trasactions->id_user = $request->id_user;
+        $trasactions->jenis_transaksi  = "beli" ;
+        $trasactions->save();
         return redirect('/catalog');
     }
 }

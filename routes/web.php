@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\DeleteController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Console\Scheduling\Event;
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 // route biasa
 Route::get('/', function () { return view('welcome'); });
 Route::get('/about', function () { return view('about'); });
+Route::get('/transaction', function () { return view('transaction'); });
 Route::get('/catalog', function () { return view('catalog'); });
 Route::get('/books/addBooks', function () { return view('addBooks'); });
 
@@ -36,11 +38,16 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 
 //route book
 Route::get('/catalog', 'App\Http\Controllers\BooksController@catalog');
+Route::get('/transaction', 'App\Http\Controllers\BooksController@transaction');
 Route::get('/listBooks', 'App\Http\Controllers\BooksController@listBooks');
-Route::get('/books/addBooks', 'App\Http\Controllers\BooksController@create');
+Route::get('/books/addBooks', 'App\Http\Controllers\BooksController@create');   
 Route::post('/books/addBooks', 'App\Http\Controllers\BooksController@store')->name('/books/addBooks');
 Route::get('/book/{book}', 'App\Http\Controllers\BooksController@show');
 Route::get('/book/{book}/editBooks', 'App\Http\Controllers\BooksController@edit');
 Route::post('/book/{book}', 'App\Http\Controllers\BooksController@update');
 Route::patch('/book/{book}', 'App\Http\Controllers\BooksController@verified');
 Route::delete('/book/{book}', 'App\Http\Controllers\BooksController@destroy');
+
+
+Route::post('/borrowBook/{book}', [BooksController::class, 'borrow'])->name('borrowBook');
+Route::post('/buyBook/{book}', [BooksController::class, 'buy'])->name('buyBook');
