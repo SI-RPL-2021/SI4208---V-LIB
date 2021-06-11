@@ -61,8 +61,17 @@ class BooksController extends Controller
             $destinationPath = 'public/images/';
             $file = $request->file('image');
             $profileImage = rand(1000, 2000000) . "." .
-            $files->getClientOriginalExtension();
+                $files->getClientOriginalExtension();
             $pathImg = $file->storeAs('images', $profileImage);
+            $files->move($destinationPath, $profileImage);
+        }
+
+        if ($files = $request->file('file')) {
+            $destinationPath = 'public/pdf/';
+            $file = $request->file('file');
+            $profileImage = rand(1000, 2000000) . "." .
+                $files->getClientOriginalExtension();
+            $pathPdf = $file->storeAs('pdf', $profileImage);
             $files->move($destinationPath, $profileImage);
         }
 
@@ -73,8 +82,9 @@ class BooksController extends Controller
         $books->description = $request->description;
         $books->year = $request->year;
         $books->borrowTime = $request->borrowTime;
+        $books->category = $request->category;
         $books->image = $pathImg;
-        
+        $books->file = $pathPdf;
         $books->save();
 
         return redirect('/books/addBooks')->with('status', 'Books has been added!');
@@ -118,9 +128,12 @@ class BooksController extends Controller
         $books->description = $request->description;
         $books->year = $request->year;
         $books->borrowTime = $request->borrowTime;
+        $books->category = $request->category;
         $books->image = $request->image;
+        $books->file = $request->file;
         $books->verified = $request->verified;
         $books->save();
+
         return redirect('/catalog')->with('status', 'Books has been updated!');
     }
 
@@ -141,6 +154,13 @@ class BooksController extends Controller
      */
     public function destroy(Book $book)
     {
+        $trasactions = transactions::all();
+        foreach($trasactions as $tc){
+            if($tc->id_buku == $book->id){
+                $tc->delete();
+            }
+        }
+
         Book::destroy($book->id);
         return redirect('/catalog');
     }
@@ -150,8 +170,9 @@ class BooksController extends Controller
         $trasactions = new transactions();
         $trasactions->id_buku = $request->id_buku;
         $trasactions->id_user = $request->id_user;
-        $trasactions->jenis_transaksi  = "pinjam" ;
+        $trasactions->jenis_transaksi  = "pinjam";
         $trasactions->lama_pinjam  = $request->buyer_quantity;
+        $trasactions->url_buku  = $request->url_buku;
         $trasactions->save();
         return redirect('/catalog');
     }
@@ -161,8 +182,24 @@ class BooksController extends Controller
         $trasactions = new transactions();
         $trasactions->id_buku = $request->id_buku;
         $trasactions->id_user = $request->id_user;
-        $trasactions->jenis_transaksi  = "beli" ;
+        $trasactions->jenis_transaksi  = "beli";
+        $trasactions->url_buku  = $request->url_buku;
         $trasactions->save();
         return redirect('/catalog');
+    }
+
+    public function returnBook(Request $request)
+    {
+        $transactions = transactions::find($request->id);
+        $transactions->jenis_transaksi  = "kembali";
+        $transactions->save();
+        return redirect('/transaction');
+    }
+
+    public function laporanTransaksi(Request $request)
+    {
+        $transaction = transactions::find($request->id);
+        $book = Book::find($transaction->id_buku);
+        return view('laporanTransaksi', ['transaction' => $transaction], ['book' => $book]);
     }
 }

@@ -20,6 +20,7 @@
                 @csrf
                 <input type="hidden" name="id_buku" value="{{$book -> id}}">
                 <input type="hidden" name="id_user" value="{{Auth::user()->id}}">
+                <input type="hidden" name="url_buku" value="{{$book -> file}}">
                 <div class="quantity-control" data-quantity="">
                     <a class="quantity-btn" data-quantity-minus=""><svg viewBox="0 0 409.6 409.6">
                             <g>
@@ -44,6 +45,7 @@
                 @csrf
                 <input type="hidden" name="id_buku" value="{{$book -> id}}">
                 <input type="hidden" name="id_user" value="{{Auth::user()->id}}">
+                <input type="hidden" name="url_buku" value="{{$book -> file}}">
                 <button type="submit" class="btn btn-danger">Buy</button>
             </form>
 

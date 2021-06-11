@@ -51,3 +51,5 @@ Route::delete('/book/{book}', 'App\Http\Controllers\BooksController@destroy');
 
 Route::post('/borrowBook/{book}', [BooksController::class, 'borrow'])->name('borrowBook');
 Route::post('/buyBook/{book}', [BooksController::class, 'buy'])->name('buyBook');
+Route::post('/returnBook/{book}', [BooksController::class, 'returnBook'])->name('returnBook');
+Route::post('/laporanTransaksi/{book}', [BooksController::class, 'laporanTransaksi'])->name('laporanTransaksi');

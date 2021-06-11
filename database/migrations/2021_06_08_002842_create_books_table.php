@@ -23,6 +23,8 @@ class CreateBooksTable extends Migration
             $table->bigInteger('borrowTime')->nullable();
             $table->text('image')->nullable();
             $table->boolean('verified')->default('0');
+            $table->string('category')->nullable();
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

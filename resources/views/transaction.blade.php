@@ -3,7 +3,7 @@
 @section('title', 'Transaction')
 
 @section('content')
-<div class="container" style="margin-top: 40px;"> 
+<div class="container" style="margin-top: 40px;">
     <div class="table-responsive">
         <table class="table table-sm" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -35,7 +35,7 @@
                         @endif
                     </td>
                     <td>
-                        <a href="" class="btn btn-success">Read</a>
+                        <a href="{{asset('public/' .$tc->url_buku)}}" class="embed-link btn btn-success">Read</a>
                         <a href="" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
@@ -45,6 +45,7 @@
                 @else
                 @foreach($transaction as $tc)
                 @if($tc->id_user == Auth::user()->id)
+                @if($tc->jenis_transaksi != "kembali")
                 <tr>
                     <td>
                         @foreach($books as $bk)
@@ -62,9 +63,23 @@
                         @endif
                     </td>
                     <td>
-                        <a href="" class="btn btn-success">Read</a>
+                        <a href="{{asset('public/' .$tc->url_buku)}}" class="embed-link btn btn-success">Read</a>
+                        
+                        <form action="{{route('laporanTransaksi',$tc -> id)}}" method="POST" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$tc -> id}}">
+                            <button type="submit" class="btn btn-warning">Detail</button>
+                        </form>
+                        @if($tc->jenis_transaksi == "pinjam")
+                        <form action="{{route('returnBook',$tc -> id)}}" method="POST" class="d-inline">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$tc -> id}}">
+                            <button type="submit" class="btn btn-danger">Return</button>
+                        </form>
+                        @endif
                     </td>
                 </tr>
+                @endif
                 @endif
                 @endforeach
                 @endif
