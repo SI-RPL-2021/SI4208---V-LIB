@@ -1,5 +1,5 @@
 @extends('layouts/app')
-@section('title', 'Find')
+@section('title', 'Find') 
 @section('content')
 <div class="container" style="margin-top: 40px;">
     <div class="table-responsive">
