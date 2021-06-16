@@ -36,7 +36,7 @@
                     </td>
                     <td>
                         <a href="{{asset('public/' .$tc->url_buku)}}" class="embed-link btn btn-success">Read</a>
-                        <a href="" class="btn btn-success">Detail</a>
+                        <a href="/book/{{ $bk -> id }}" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
                 @endforeach

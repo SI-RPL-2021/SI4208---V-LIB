@@ -1,13 +1,15 @@
 @extends('layouts/app')
+
 @section('title', 'Catalog')
+
 @section('content')
+
 <div class="container" style="margin-top: 40px;">
     <div class="table-responsive">
         <form action="/findBook" method="GET" class="d-inline">
             @csrf
-            <label for="gsearch">Find Book:</label>
-            <input type="search" id="gsearch" name="gsearch">
-            <button type="submit" class="btn btn-success">Search</button>
+            <input  style="color: #000000; border: 1px solid  #cacaca; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" placeholder="Search" type="search" id="gsearch" name="gsearch">
+            <button style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" type="submit" class="btn btn-success">Search</button>
         </form>
         <table class="table table-sm mt-4" id="dataTable" width="100%" cellspacing="0">
             <thead>

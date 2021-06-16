@@ -8,7 +8,7 @@
     <h3 style="text-align: center;">Details Books</h3>
     <div class="row" style="margin-left: 300px; margin-top: 40px;">
         <div class="col-xl-4">
-            <img style="width: 80%;" src='{{asset("public/$book->image")}}' alt="">
+            <img style="width: 100%;" src='{{asset("public/$book->image")}}' alt="">
         </div>
         <div class="col-xl-8">
             <h5>{{ $book -> title }}</h5>
@@ -22,35 +22,29 @@
                 <input type="hidden" name="id_user" value="{{Auth::user()->id}}">
                 <input type="hidden" name="url_buku" value="{{$book -> file}}">
                 <div class="quantity-control" data-quantity="">
-                    <a class="quantity-btn" data-quantity-minus=""><svg viewBox="0 0 409.6 409.6">
-                            <g>
-                                <g>
-                                    <path d="M392.533,187.733H17.067C7.641,187.733,0,195.374,0,204.8s7.641,17.067,17.067,17.067h375.467 c9.426,0,17.067-7.641,17.067-17.067S401.959,187.733,392.533,187.733z" />
-                                </g>
-                            </g>
-                        </svg></a>
-                    <input type="number" class="quantity-input" data-quantity-target="" value="1" step="1" min="1" max="" name="buyer_quantity">
-                    <a class="quantity-btn" data-quantity-plus=""><svg viewBox="0 0 426.66667 426.66667">
-                            <path d="m405.332031 192h-170.664062v-170.667969c0-11.773437-9.558594-21.332031-21.335938-21.332031-11.773437 0-21.332031 9.558594-21.332031 21.332031v170.667969h-170.667969c-11.773437 0-21.332031 9.558594-21.332031 21.332031 0 11.777344 9.558594 21.335938 21.332031 21.335938h170.667969v170.664062c0 11.777344 9.558594 21.335938 21.332031 21.335938 11.777344 0 21.335938-9.558594 21.335938-21.335938v-170.664062h170.664062c11.777344 0 21.335938-9.558594 21.335938-21.335938 0-11.773437-9.558594-21.332031-21.335938-21.332031zm0 0" />
-                        </svg>
-                    </a>
+                    <table>
+                        <tr>
+                            <td><input style="color: #000000; border: 1px solid  #cacaca; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" type="number" class="quantity-input" data-quantity-target="" value="1" step="1" min="1" max="" name="buyer_quantity"></td>
+                            <td><p style="margin-top: 13px; margin-left: 10px; font-size: large;">Days</p></td>
+                        </tr>
+                    </table>
                 </div>
-                <p>Days</p>
-                <button type="submit" class="btn btn-danger">Borrow</button>
+                
+                <button style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" type="submit" class="btn btn-danger">Borrow</button>
             </form>
             <form action="/buyBook/{{ $book -> id }}" method="POST" class="d-inline">
                 @csrf
                 <input type="hidden" name="id_buku" value="{{$book -> id}}">
                 <input type="hidden" name="id_user" value="{{Auth::user()->id}}">
                 <input type="hidden" name="url_buku" value="{{$book -> file}}">
-                <button type="submit" class="btn btn-danger">Buy</button>
+                <button type="submit" style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" class="btn btn-danger">Buy</button>
             </form>
             @if (Auth::user()->is_admin == 1)
-            <a href="/book/{{ $book -> id }}/editBooks" class="btn btn-success">edit</a>
+            <a style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" href="/book/{{ $book -> id }}/editBooks" class="btn btn-warning">Edit</a>
             <form action="{{ $book->id }}" method="POST" class="d-inline">
                 @method('delete')
                 @csrf
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" class="btn btn-danger">Delete</button>
             </form>
             @endif
         </div>

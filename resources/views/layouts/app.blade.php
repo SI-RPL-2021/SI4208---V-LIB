@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+   <!-- CSRF Token -->
+   <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
 
@@ -23,27 +22,7 @@
     <!-- Favicon -->
     <link href="{{ asset('img/vlib.png') }}" rel="icon" type="image/png">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- Icon -->
-    <link rel="icon" href="images/logo_title.png" type="image/x-icon">
-    <link rel="stylesheet" href="{{asset('css/global.css')}}">
-    <link rel='stylesheet' href='{{asset('css/me.css')}}' type='text/css' media='screen' />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 </head>
-
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -56,10 +35,7 @@
                     <li style="margin-left: 0px;" class="nav-item">
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
-                    <li style="margin-right: 0px;" class="nav-item">
-                        <a class="nav-link" href="{{ url('/about') }}">About Us</a>
-                    </li>
-
+                    
                 </ul>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -71,95 +47,73 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        
+                        <li style="margin-right: 0px; margin-left: 0px;" class="nav-item">
+                            <a class="nav-link" href="{{ url('/catalog') }}">Catalog</a>
+                        </li>
+                        <li style="margin-right: 0px;" class="nav-item">
+                            <a class="nav-link" href="{{ url('/books/addBooks') }}">Publication</a>
+                        </li>
+                        <li style="margin-right: 0px;" class="nav-item">
+                            <a class="nav-link" href="{{ url('/about') }}">About Us</a>
+                        </li>
 
                         @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
                         @else
+                            @if (Auth::user()->is_admin == 1)
+                                    <li style="margin-right: 0px;" class="nav-item">
+                                    <a class="nav-link" href="{{ url('/admin/home') }}">Dashboard</a>
+                                </li>
+                                
+                                <li style="margin-right: 0px;" class="nav-item">
+                                    <a class="nav-link" href="{{ url('/listBooks') }}">List Book</a>
+                                </li>
 
-                        <!-- ADMIN NAVBAR -->
-                        @if (Auth::user()->is_admin == 1)
-                        <li style="margin-right: 0px; margin-left: 0px;" class="nav-item">
-                            <a class="nav-link" href="{{ url('/catalog') }}">Catalog</a>
-                        </li>
-                        <li style="margin-right: 0px;" class="nav-item">
-                            <a class="nav-link" href="{{ url('/books/addBooks') }}">Publication</a>
-                        </li>
-                        <li style="margin-right: 0px; margin-left: 0px;" class="nav-item">
-                            <a class="nav-link" href="{{ url('/transaction') }}">Transaction</a>
-                        </li>
-                        <li style="margin-right: 0px;" class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/home') }}">Dashboard</a>
-                        </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
 
-                        <li style="margin-right: 0px;" class="nav-item">
-                            <a class="nav-link" href="{{ url('/listBooks') }}">List Book</a>
-                        </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-                        </li> -->
-                        <!-- <li class="nav-item dropdown"> -->
-                        <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a> -->
-
-                        <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                            {{ __('Logout') }}
+                                        </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div> -->
-                        <!-- </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @else
+                                <li style="margin-right: 0px; margin-left: 0px;" class="nav-item">
+                                    <a class="nav-link" href="{{ url('/transaction') }}">Transaction</a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                                            {{ __('Logout') }}
+                                        </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
-
-                        <!-- USER NAVBAR -->
-                        @else
-                        <li style="margin-right: 0px; margin-left: 0px;" class="nav-item">
-                            <a class="nav-link" href="{{ url('/catalog') }}">Catalog</a>
-                        </li>
-                        <li style="margin-right: 0px;" class="nav-item">
-                            <a class="nav-link" href="{{ url('/books/addBooks') }}">Publication</a>
-                        </li>
-                        <li style="margin-right: 0px; margin-left: 0px;" class="nav-item">
-                            <a class="nav-link" href="{{ url('/transaction') }}">Transaction</a>
-                        </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}</p>
-                            </a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
-                        @endif
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endif
                         @endguest
                     </ul>
                 </div>
@@ -179,17 +133,14 @@
                 <h4><a href="{{ url('/about') }}" class="text-white">About Us</a></h4>
             </div>
             <div class="col-sm-2">
-                <center>
-                    <td colspan="3">
-                        <h4 class="text-white">Contact</h4>
-                    </td>
-                    <table>
+                <center><td colspan="3"><h4 class="text-white">Contact</h4></td>
+                        <table>
                         <tr>
                             <td><a href=""><img style="width: 30px; margin-right: 10px;" src="{{asset('img/igc.png')}}"></a></td>
                             <td><a href=""><img style="width: 30px; margin-right: 10px;" src="{{asset('img/tw.png')}}"></a></td>
                             <td><a href=""><img style="width: 30px; margin-right: 10px;" src="{{asset('img/fb.png')}}"></a></td>
                         </tr>
-                    </table>
+                        </table>
                 </center>
             </div>
         </div>
@@ -210,7 +161,6 @@
             </div>
         </div>
     </div>
-    <script src="{{asset('js/index.js')}}"></script>
-</body>
 
+</body>
 </html>
