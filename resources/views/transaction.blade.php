@@ -35,8 +35,8 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{asset('public/' .$tc->url_buku)}}" class="embed-link btn btn-success">Read</a>
-                        <a href="/book/{{ $bk -> id }}" class="btn btn-success">Detail</a>
+                        <a style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" href="{{asset('public/' .$tc->url_buku)}}" class="embed-link btn btn-success">Read</a>
+                        <a style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" href="/book/{{ $bk -> id }}" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
                 @endforeach
@@ -63,18 +63,18 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{asset('public/' .$tc->url_buku)}}" class="embed-link btn btn-success">Read</a>
+                        <a style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" href="{{asset('public/' .$tc->url_buku)}}" class="embed-link btn btn-success">Read</a>
 
                         <form action="{{route('laporanTransaksi',$tc -> id)}}" method="POST" class="d-inline">
                             @csrf
                             <input type="hidden" name="id" value="{{$tc -> id}}">
-                            <button type="submit" class="btn btn-warning">Detail</button>
+                            <button style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" type="submit" class="btn btn-warning">Detail</button>
                         </form>
                         @if($tc->jenis_transaksi == "pinjam")
                         <form action="{{route('returnBook',$tc -> id)}}" method="POST" class="d-inline">
                             @csrf
                             <input type="hidden" name="id" value="{{$tc -> id}}">
-                            <button type="submit" class="btn btn-danger">Return</button>
+                            <button style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" type="submit" class="btn btn-danger">Return</button>
                         </form>
                         @endif
                     </td>

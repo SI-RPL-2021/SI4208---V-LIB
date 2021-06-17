@@ -24,10 +24,10 @@
             <tbody>
                 @foreach( $books as $book )
                 <tr>
-                    <td>{{ $book->title }}</td>
-                    <td>{{ $book->author }}</td>
-                    <td>{{ $book->year }}</td>
-                    <td>
+                    <td style="padding-top: 12px;">{{ $book->title }}</td>
+                    <td style="padding-top: 12px;">{{ $book->author }}</td>
+                    <td style="padding-top: 12px;">{{ $book->year }}</td>
+                    <td style="padding-top: 12px;">
                         @if ($book->price == null)
                         <strong>Free</strong>
                         @else
