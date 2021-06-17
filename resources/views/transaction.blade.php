@@ -1,4 +1,4 @@
-@extends('layouts/app') 
+@extends('layouts/app')
 
 @section('title', 'Transaction')
 
@@ -64,7 +64,7 @@
                     </td>
                     <td>
                         <a href="{{asset('public/' .$tc->url_buku)}}" class="embed-link btn btn-success">Read</a>
-                        
+
                         <form action="{{route('laporanTransaksi',$tc -> id)}}" method="POST" class="d-inline">
                             @csrf
                             <input type="hidden" name="id" value="{{$tc -> id}}">

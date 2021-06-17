@@ -55,12 +55,12 @@
         <div class="form-group">
             <label for="cars">Choose a category:</label>
             <select class="form-control" name="category" id="category" style="color: #000000; border: 1px solid  #cacaca; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;">
-                <option value="Anak-Anak" <?php echo 'Anak-Anak' == $book->category ? 'selected' : '' ?> >Anak-Anak</option>
-                <option value="Remaja"  <?php echo 'Remaja' == $book->category ? 'selected' : '' ?> >Remaja</option>
-                <option value="Dewasa"  <?php echo 'Dewasa' == $book->category ? 'selected' : '' ?> >Dewasa</option>
-                <option value="Teknologi"  <?php echo 'Teknologi' == $book->category ? 'selected' : '' ?> >Teknologi</option>
-                <option value="Non-Teknologi"  <?php echo 'Non-Teknologi' == $book->category ? 'selected' : '' ?> >Non-Teknologi</option>
-                <option value="Lainnya"  <?php echo 'Lainnya' == $book->category ? 'selected' : '' ?> >Lainnya</option>
+                <option value="Anak-Anak" <?php echo 'Anak-Anak' == $book->category ? 'selected' : '' ?>>Anak-Anak</option>
+                <option value="Remaja" <?php echo 'Remaja' == $book->category ? 'selected' : '' ?>>Remaja</option>
+                <option value="Dewasa" <?php echo 'Dewasa' == $book->category ? 'selected' : '' ?>>Dewasa</option>
+                <option value="Teknologi" <?php echo 'Teknologi' == $book->category ? 'selected' : '' ?>>Teknologi</option>
+                <option value="Non-Teknologi" <?php echo 'Non-Teknologi' == $book->category ? 'selected' : '' ?>>Non-Teknologi</option>
+                <option value="Lainnya" <?php echo 'Lainnya' == $book->category ? 'selected' : '' ?>>Lainnya</option>
             </select>
         </div>
 

@@ -16,50 +16,50 @@
                         @csrf
 
                         <div class="form-group row">
-                            
+
                             <div class="col-md-6">
                                 <label for="name" style="margin-left: 50%;" class="">{{ __('Name') }}</label>
                                 <input style="margin-left: 50%; color: #000000; border: 1px solid  #cacaca; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            
+
 
                             <div class="col-md-6">
                                 <label for="email" style="margin-left: 50%;">{{ __('E-Mail Address') }}</label>
                                 <input id="email" style="margin-left: 50%; color: #000000; border: 1px solid  #cacaca; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            
+
                             <div class="col-md-6">
                                 <label for="password" style="margin-left: 50%;">{{ __('Password') }}</label>
                                 <input id="password" style="margin-left: 50%; color: #000000; border: 1px solid  #cacaca; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            
+
                             <div class="col-md-6">
                                 <label for="password-confirm" style="margin-left: 50%;">{{ __('Confirm Password') }}</label>
                                 <input id="password-confirm" style="margin-left: 50%; color: #000000; border: 1px solid  #cacaca; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">

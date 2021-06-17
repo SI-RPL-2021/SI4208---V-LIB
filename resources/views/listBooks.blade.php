@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Book List')
-   
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,34 +14,34 @@
                     <table class="table">
                         <thead>
                             <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Year</th>
-                            <th scope="col">Author</th>
-                            <th scope="col">Status</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach( $books as $book )
-                            <tr> 
-                                <th>{{ $book->title }}</th>  
+                            <tr>
+                                <th>{{ $book->title }}</th>
                                 <th>{{ $book->year }}</th>
                                 <th>{{ $book->author }}</th>
                                 <th>
                                     @if($book->verified == 0)
-                                        <form action="/book/{{ $book->id }}" method="POST">
-                                            @method('patch')
-                                            @csrf    
-                                            <input type="hidden" class="form-control" name="verified" id="verified" value="1">
-                                            <button style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" type="submit" class="btn btn-success">verify</button>
-                                    @else
+                                    <form action="/book/{{ $book->id }}" method="POST">
+                                        @method('patch')
+                                        @csrf
+                                        <input type="hidden" class="form-control" name="verified" id="verified" value="1">
+                                        <button style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" type="submit" class="btn btn-success">verify</button>
+                                        @else
                                         verified
-                                    @endif
+                                        @endif
                                 </th>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    </div>
+                </div>
             </div>
         </div>
     </div>

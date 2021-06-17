@@ -25,11 +25,13 @@
                     <table>
                         <tr>
                             <td><input style="color: #000000; border: 1px solid  #cacaca; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px;" type="number" class="quantity-input" data-quantity-target="" value="1" step="1" min="1" max="" name="buyer_quantity"></td>
-                            <td><p style="margin-top: 13px; margin-left: 10px; font-size: large;">Days</p></td>
+                            <td>
+                                <p style="margin-top: 13px; margin-left: 10px; font-size: large;">Days</p>
+                            </td>
                         </tr>
                     </table>
                 </div>
-                
+
                 <button style="color: #fafafa; border: 0px solid  #1cc88a; border-radius: 60px; padding: 10px; padding-left: 20px; padding-right: 20px; background-color:  #1cc88a;" type="submit" class="btn btn-danger">Borrow</button>
             </form>
             <form action="/buyBook/{{ $book -> id }}" method="POST" class="d-inline">
