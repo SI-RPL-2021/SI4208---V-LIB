@@ -38,4 +38,5 @@ class HomeController extends Controller
         $user = DB::table('users')->get();
         return view('listBooks',['user' => $user]);
     }
+
 }

@@ -22,6 +22,8 @@
     <!-- Favicon -->
     <link href="{{ asset('img/vlib.png') }}" rel="icon" type="image/png">
 
+    
+
 </head>
 <body>
     <div id="app">
@@ -56,6 +58,9 @@
                         </li>
                         <li style="margin-right: 0px;" class="nav-item">
                             <a class="nav-link" href="{{ url('/about') }}">About Us</a>
+                        </li>
+                        <li style="margin-right: 0px;" class="nav-item">
+                            <a class="nav-link" href="{{ url('/chart') }}">Test</a>
                         </li>
 
                         @guest
@@ -144,7 +149,7 @@
                 </center>
             </div>
         </div>
-        <hr style="border: 2px solid #fafafa; border-radius: 5px;">
+        <hr style="background-color: #fafafa; border: 2px solid #fafafa; border-radius: 5px;">
         <div class="row">
             <div class="col-sm-9">
                 <h6 class="text-white">© Virtual Library</h6>
@@ -163,4 +168,6 @@
     </div>
 
 </body>
+
+
 </html>

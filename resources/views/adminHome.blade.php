@@ -10,6 +10,7 @@
                 <div class="card-header">
                     <h3 style="text-align: center; margin-top: 50px; margin-bottom: 20px;">Dashboard</h3>
                 </div>
+                
                 <div class="card-body">
 
                     <table class="table">
@@ -37,7 +38,8 @@
                             @endforeach
                         </tbody>
                     </table>
-                    </div>
+                </div>
+
             </div>
         </div>
     </div>
