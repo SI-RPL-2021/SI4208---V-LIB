@@ -35,14 +35,12 @@
         <div class="col-sm-7">
             <h4>Lorem Ipsum Dolor Sit Amet</h4>
             <p style="text-align: justify;">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Ullam nostrum modi at officia dolor deserunt consequuntur
-                vel repellendus quasi, maxime cumque esse qui in
-                laboriosam blanditiis, nesciunt doloribus! Doloremque, molestiae?
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Ullam nostrum modi at officia dolor deserunt consequuntur
-                vel repellendus quasi, maxime cumque esse qui in
-                laboriosam blanditiis, nesciunt doloribus! Doloremque, molestiae?
+                To meet the needs of our users, we subscribe to
+                various online digital library materials (e-Resources)
+                such as journals, ebooks, and other online reference works.
+                Every member of the Virtual Library and already has a member number
+                legitimate, entitled to take advantage of digital collection services
+                online that we subscribe to (e-Resources).
             </p>
         </div>
         <div class="col-sm-5">
