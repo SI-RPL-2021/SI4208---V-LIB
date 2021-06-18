@@ -33,7 +33,7 @@
 <div class="container" style="margin-top: 100px;">
     <div class="row">
         <div class="col-sm-7">
-            <h4>Lorem Ipsum Dolor Sit Amet</h4>
+            <h4>Welcome to V-Lib</h4>
             <p style="text-align: justify;">
                 To meet the needs of our users, we subscribe to
                 various online digital library materials (e-Resources)

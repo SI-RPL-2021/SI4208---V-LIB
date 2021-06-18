@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -37,6 +37,16 @@ class HomeController extends Controller
     {
         $user = DB::table('users')->get();
         return view('listBooks',['user' => $user]);
+    }
+
+    public function handleChart()
+    {
+        $userData = User::select(\DB::raw("COUNT(*) as count"))
+                    ->whereYear('created_at', date('Y'))
+                    ->groupBy(\DB::raw("Date(created_at)"))
+                    ->pluck('count');
+          
+        return view('chart', compact('userData'));
     }
 
 }

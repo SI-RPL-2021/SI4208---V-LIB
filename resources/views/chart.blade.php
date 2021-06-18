@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container">
+<div style="margin-top: 50px;" class="container">
     <div class="row justify-content-center">
 
         <!-- container graph -->
